@@ -26,6 +26,7 @@ event.preventDefault();
 console.log("form Submitted");
    }
   return (
+    <div className="FormFill">
      <form id="PersonalDetail" name="PersonalDetail" onSubmit={(event)=>(handleSubmit(event))}>
       <div className="Name" style={{display:"flex",flexDirection:"column", gap:"10px"}}>
 <div style={{fontSize:"16px",fontWeight:"bold" }}>Full Name Display</div>
@@ -39,11 +40,11 @@ console.log("form Submitted");
 
  <div className="button"> 
 <button type="submit" >Button</button>
-<div>Full Name:{username} {lastName}</div>
  </div>
 </div>
 </form>
-  
+<div>Full Name:{username} {lastName}</div>
+  </div>
   );
 }
 
