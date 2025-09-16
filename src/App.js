@@ -6,6 +6,7 @@ function App() {
 
   const[username,setUsername]=useState("");
   const[lastName,setlastName]=useState("");
+  const[visibility,setvisibility]=useState(true);
 
 
 
@@ -22,28 +23,37 @@ function App() {
    }
 
    const handleSubmit =(event)=>{
-event.preventDefault();
-console.log("form Submitted");
+   
+ event.preventDefault();
+ if(!username||!lastName){
+  setvisibility(false);
+ }
+else{
+  setvisibility(true);
+}
    }
+
+ 
+   
   return (
     <div className="FormFill">
-     <form id="PersonalDetail" name="PersonalDetail" onSubmit={(event)=>(handleSubmit(event))}>
+     <form id="PersonalDetail" name="PersonalDetail" onSubmit={handleSubmit}>
       <div className="Name" style={{display:"flex",flexDirection:"column", gap:"10px"}}>
 <div style={{fontSize:"16px",fontWeight:"bold" }}>Full Name Display</div>
-<label htmlfor="firstName" >
-<input id="firstName" type="text" name="firstName" placeholder="FirstName" value={username} onChange={(event)=>(savefirstname(event))} required></input>
+<label htmlFor="firstName" >
+<input id="firstName" type="text" name="firstName" placeholder="FirstName" value={username} onChange={(event)=>(savefirstname(event))}></input>
 </label>
 
-<label htmlfor="lastName" >
-<input id="lastName" type="text" name="lastName" placeholder="LastName" value={lastName} onChange={(event)=>(savelastname(event))} required></input>
+<label htmlFor="lastName" >
+<input id="lastName" type="text" name="lastName" placeholder="LastName" value={lastName} onChange={(event)=>(savelastname(event))}></input>
 </label>
 
  <div className="button"> 
-<button type="submit" >Button</button>
+<button type="submit">Button</button>
  </div>
 </div>
 </form>
-<div>Full Name:{username} {lastName}</div>
+{visibility&&(<div id="nameLabel">Full Name:{username} {lastName}</div>)}
   </div>
   );
 }
