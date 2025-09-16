@@ -6,7 +6,7 @@ function App() {
 
   const[username,setUsername]=useState("");
   const[lastName,setlastName]=useState("");
-  const[visibility,setvisibility]=useState(true);
+  const[visibility,setvisibility]=useState(false);
 
 
 
@@ -53,7 +53,7 @@ else{
  </div>
 </div>
 </form>
-{visibility&&(<div id="nameLabel">Full Name:{username} {lastName}</div>)}
+{visibility&&(<div id="nameLabel">Full Name: {username} {lastName}</div>)}
   </div>
   );
 }
